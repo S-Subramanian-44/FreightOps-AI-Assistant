@@ -11,7 +11,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 # OpenAI v1 client
 # try:
@@ -38,7 +38,8 @@ MODEL_NAME = "gpt-4o-mini"  # Use a reasoning-capable, efficient model
 #     except Exception:
 #         client = None
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+# GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+GITHUB_TOKEN = st.secrets.get("GITHUB_TOKEN", os.getenv("GITHUB_TOKEN"))
 GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions"
 GITHUB_API_VERSION = "2022-11-28"
 
@@ -370,6 +371,7 @@ manual_agent = st.selectbox(
 
 if not GITHUB_TOKEN:
     st.info("Set GITHUB_TOKEN in your environment to enable LLM explanations.")
+    st.error("❌ Missing OPENAI_API_KEY. Please set it in .env or Streamlit Secrets.")
 
 if st.button("Ask Assistant") and query:
     try:
