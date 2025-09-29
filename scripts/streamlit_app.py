@@ -23,11 +23,14 @@ import streamlit as st
 # --------------------------
 # Config / Constants
 # --------------------------
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 st.set_page_config(page_title="FreightOps AI Assistant", layout="wide")
 st.title("🚚 FreightOps AI Assistant")
 
 # Programmatically fetch CSV from provided PATH
-DATA_PATH = 'D:/CIT/SEM 9/Placements/FreightOps AI Assistant/freight_data.csv'
+DATA_PATH = os.path.join(BASE_DIR, "freight_data.csv")
 MODEL_NAME = "gpt-4o-mini"  # Use a reasoning-capable, efficient model
 
 # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
