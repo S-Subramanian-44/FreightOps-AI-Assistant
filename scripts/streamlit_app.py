@@ -370,8 +370,7 @@ manual_agent = st.selectbox(
 #     st.info("Set OPENAI_API_KEY in your environment to enable LLM explanations. Analytics will still work.")
 
 if not GITHUB_TOKEN:
-    st.info("Set GITHUB_TOKEN in your environment to enable LLM explanations.")
-    st.error("❌ Missing OPENAI_API_KEY. Please set it in .env or Streamlit Secrets.")
+    st.error("❌ Missing GITHUB_TOKEN. Please set it in .env or Streamlit Secrets.")
 
 if st.button("Ask Assistant") and query:
     try:
