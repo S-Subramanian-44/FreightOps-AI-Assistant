@@ -9,9 +9,9 @@ import requests
 import numpy as np
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 # OpenAI v1 client
 # try:
@@ -23,11 +23,14 @@ load_dotenv()
 # --------------------------
 # Config / Constants
 # --------------------------
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 st.set_page_config(page_title="FreightOps AI Assistant", layout="wide")
 st.title("🚚 FreightOps AI Assistant")
 
 # Programmatically fetch CSV from provided PATH
-DATA_PATH = 'D:/CIT/SEM 9/Placements/FreightOps AI Assistant/freight_data.csv'
+DATA_PATH = os.path.join(BASE_DIR, "freight_data.csv")
 MODEL_NAME = "gpt-4o-mini"  # Use a reasoning-capable, efficient model
 
 # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
@@ -370,7 +373,11 @@ manual_agent = st.selectbox(
 #     st.info("Set OPENAI_API_KEY in your environment to enable LLM explanations. Analytics will still work.")
 
 if not GITHUB_TOKEN:
+<<<<<<< HEAD
     st.info("Set GITHUB_TOKEN in your environment to enable LLM explanations.")
+=======
+    st.error("❌ Missing GITHUB_TOKEN. Please set it in .env or Streamlit Secrets.")
+>>>>>>> 9630ec0da1c8f10878096e7f971002b3af9c17ea
 
 if st.button("Ask Assistant") and query:
     try:
