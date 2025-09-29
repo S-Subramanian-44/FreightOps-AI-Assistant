@@ -5,13 +5,13 @@ import streamlit as st
 
 @st.cache_data(ttl=600)
 def load_data(relative_path) -> pd.DataFrame:
-    # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    # CSV_PATH = os.path.join(BASE_DIR, relative_path)
-    # df = pd.read_csv(CSV_PATH)
-
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     CSV_PATH = os.path.join(BASE_DIR, relative_path)
     df = pd.read_csv(CSV_PATH)
+
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # CSV_PATH = os.path.join(BASE_DIR, relative_path)
+    # df = pd.read_csv(CSV_PATH)
     
     # Normalize columns
     df["Weight_kg"] = pd.to_numeric(df["Weight_kg"], errors="coerce")
