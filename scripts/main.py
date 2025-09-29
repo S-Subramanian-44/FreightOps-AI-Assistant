@@ -7,7 +7,7 @@ from agents import cost_analyzer, route_planner, compliance_checker, summary_age
 st.set_page_config(page_title="FreightOps AI Assistant", layout="wide")
 st.title("🚚 FreightOps AI Assistant")
 
-DATA_PATH = r"data\freight_data.csv"
+DATA_PATH = "data/freight_data.csv"
 
 # --------------------------
 # UI
